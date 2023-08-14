@@ -99,6 +99,8 @@ def load_tokenizer(model_name, model):
     path_to_model = Path(f"{shared.args.model_dir}/{model_name}/")
     if any(s in model_name.lower() for s in ['gpt-4chan', 'gpt4chan']) and Path(f"{shared.args.model_dir}/gpt-j-6B/").exists():
         tokenizer = AutoTokenizer.from_pretrained(Path(f"{shared.args.model_dir}/gpt-j-6B/"))
+    elif (model_name == 'japanese-stablelm-base-alpha-7b'):
+        tokenizer = transformers.LlamaTokenizer.from_pretrained("novelai/nerdstash-tokenizer-v1", additional_special_tokens=['▁▁'])
     elif path_to_model.exists():
         try:
             tokenizer = AutoTokenizer.from_pretrained(
