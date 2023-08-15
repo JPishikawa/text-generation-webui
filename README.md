@@ -196,7 +196,6 @@ Optionally, you can use the following command-line flags:
 | `--model-dir MODEL_DIR`                    | Path to directory with all the models. |
 | `--lora-dir LORA_DIR`                      | Path to directory with all the loras. |
 | `--model-menu`                             | Show a model menu in the terminal when the web UI is first launched. |
-| `--no-stream`                              | Don't stream the text output in real time. |
 | `--settings SETTINGS_FILE`                 | Load the default interface settings from this yaml file. See `settings-template.yaml` for an example. If you create a file called `settings.yaml`, this file will be loaded by default without the need to use the `--settings` flag. |
 | `--extensions EXTENSIONS [EXTENSIONS ...]` | The list of extensions to load. If you want to load more than one extension, write the names separated by spaces. |
 | `--verbose`                                | Print the prompts to the terminal. |
@@ -260,7 +259,7 @@ Optionally, you can use the following command-line flags:
 
 | Flag        | Description |
 |-------------|-------------|
-| `--model_type MODEL_TYPE` | Model type of pre-quantized model. Currently gpt2, gptj, gpt_neox, falcon, llama, mpt, gpt_bigcode, dolly-v2, and replit are supported. |
+| `--model_type MODEL_TYPE` | Model type of pre-quantized model. Currently gpt2, gptj, gptneox, falcon, llama, mpt, starcoder (gptbigcode), dollyv2, and replit are supported. |
 
 #### AutoGPTQ
 
@@ -271,6 +270,7 @@ Optionally, you can use the following command-line flags:
 | `--no_inject_fused_mlp`        | Triton mode only: disable the use of fused MLP, which will use less VRAM at the cost of slower inference. |
 | `--no_use_cuda_fp16`           | This can make models faster on some systems. |
 | `--desc_act`                   | For models that don't have a quantize_config.json, this parameter is used to define whether to set desc_act or not in BaseQuantizeConfig. |
+| `--disable_exllama`            | Disable ExLlama kernel, which can improve inference speed on some systems. |
 
 #### ExLlama
 
